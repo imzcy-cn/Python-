@@ -5,9 +5,13 @@ ChuShi = 0
 JieShu = 3
 
 
+
 while ChuShi < JieShu:
     UserName = input("Please input your name: ")
-    if len(UserName) == 0:
+    if len(UserName) == 0:                                                     
+        if ChuShi == 2:
+            print("用户名错误次数太多，退出输入！")
+            sys.exit(1)
         print("用户名不能为空，请重新输入！")
         ChuShi += 1
         continue
@@ -21,11 +25,10 @@ while ChuShi < JieShu:
         for UF in UserFile.readlines():
             MyUser = UF.strip()
             MyUser = MyUser.split()
-            #print("user=",MyUser)
-            #time.sleep(1)
             if MyUser[0] == UserName:
                 pwd = input("Please input your password: ")
                 if len(pwd) == 0:
+
                     print("密码不能为空，请重新输入用户名和密码！")
                     ChuShi += 1
                     break
@@ -44,6 +47,8 @@ while ChuShi < JieShu:
             else:
                 continue
         else:
+            if ChuShi == 2:
+                print("用户名错误次数太多，退出输入！")
+                sys.exit(1)
             print("您输入的用户名不存在，请重新输入！")
             ChuShi+=1
-            break
