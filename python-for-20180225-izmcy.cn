@@ -1,0 +1,46 @@
+'''UserFile.txt
+zhangsan 123456
+lisi 456789
+wangwu 789123
+'''
+
+
+
+
+import sys
+import time
+
+ChuShi = 0
+JieShu = 1
+
+while ChuShi < JieShu:
+    with open('UserFile.txt','r') as LockFile:
+        for LF in LockFile.readlines():                             #for循环使用readlines()读取文本内容，是把整个文本都按行读取完成一遍之后才会向下继续执行，下面的语句可以放到for上面with代码块同等缩进位置
+            print(LF)
+            print('ChuShi=',ChuShi)
+            time.sleep(1)
+
+
+    ChuShi+=1
+    time.sleep(1)
+    print('ChuShi=',ChuShi)
+
+
+
+
+
+
+'''此为执行结果
+D:\1_zcy_data\0_zcy_python\1_python_MianAnZhuangJieShiChengXu\python-3.6.3-embed-amd64\python.exe D:/1_zcy_data/0_zcy_python/0_pycharm_data/ZCY_LaoNanHaiZiDongHuaKaiFa12/date1_20180221/UserLogin.py
+zhangsan 123456
+
+ChuShi= 0
+lisi 456789
+
+ChuShi= 0
+wangwu 789123
+ChuShi= 0
+ChuShi= 1
+
+进程已结束,退出代码0
+'''
